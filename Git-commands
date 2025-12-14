@@ -66,4 +66,24 @@ Then we refresh github again, but still files arent found there.So next do:
 A command will be displayed when above command written. This command is to be run next.
 After running this, when we check in github, a master branch appears which would have all the files.
 But we need these files in main branch, for that compare and pull request( base:main <- compare:master ) and go on and confirm merge, after which all the files appear in main as well as master branch.
+Now if we have a file that is to be a part of only 1 branch and not in main.(notOnMain.txt file here)
+To create a new branch,
+>>git checkout -b "day1Branch"
+This creates as well as switches to that branch 
+Then : 
+>>git status
+Shows the file notOnMain.txt in red
+>>git add .
+>>git commit -m "dummy"
+>>git push
 
+In github itself if we want to move a file from one branch to another, goto pull requests then, create pull request
+base:destination_branch <-- compare:source_branch
+
+If we want to just switch the branch without creating it, go for:
+>>git checkout "day1branch"
+In this case the -b flag isnt used.
+
+In order to clone the application, we can rather download the zip or :
+Create the new folder -> open cmd for it -> git clone <https link>->
+git clone https://github.com/mahima2307/GitDemo.git
