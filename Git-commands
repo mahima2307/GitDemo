@@ -14,30 +14,56 @@ new v4
 
 https://git-scm.com/downloads
 
-GitHub
+GitHub-->Mostly used
 BitBucket
 GitLabs
 GitPod
 
+To include file in Github from local editor:
+Open the local folder that needs to uploaded to Github in file explorer, click on file path and replace with "cmd".
+This opens the command prompt for that folder then run the following.
+
 >> For 1st time need to configure github in our system
 git config --global user.name "mahima2307"
 git config --global user.email "mahimanshah123@gmail.com"
-
 git config --global color.ui auto
-
 
 Mandatory Commands:
 >> git init
-After this command we can see the .git folder in the folder which is connected to git. If not view->check hidden 
-icons and then check for folder.
->> git remote add origin https://github.com/rohan1917/GitDemo.git
+To initialize git folder. After this command we can see the .git folder in the folder which is connected to git. If not view->check "Hidden Files" checkbox and then check for folder.
+
+>> git remote add origin (RepoURL)
+RepoURL can be found by Github->code->local->HTTPS->copy link and replace for (RepoURL) in the command above.
+To make a remote connection to our application, that is connection between local editor to github account.
 
 
+Now, to have the file from Github to editor we need to pull the files(Cloning):
+Go to the editor-> ... -> New Terminal-->Now ensure that the file path is same as the folder we have in 
+github; else go to explorer on left, right click on that folder and click "Open in Integrated Terminal".
+And then write following command in that terminal.
+>>git pull origin main
+Here main is the name of the branch.
+The above command brings all the changes made or the files added to github(and not the local editor) to the 
+local editor.
+This process is called cloning.
 
-git pull origin main
-git status
+Now to have the files present in local editor to Github, we need to push the files
+So first, run the following command to check the files in editor, which are not in github. They appear in red on running git status.
+>>git status
 
-git add .
-git status
-git commit -m "Commit Message"
-git push
+Then to add these files to git, use:
+>>git add .
+The above command adds all the files to git.
+
+Then we can check the status again using:
+>>git status
+Now all the files that appeared in red while using the previous git status, appears green, indicating that these
+files are now added to git.
+But now if we check in github for these files, they are not found so we need to commit using:
+>>git commit -m "any message"
+Then we refresh github again, but still files arent found there.So next do:
+>>git push
+A command will be displayed when above command written. This command is to be run next.
+After running this, when we check in github, a master branch appears which would have all the files.
+But we need these files in main branch, for that compare and pull request( base:main <- compare:master ) and go on and confirm merge, after which all the files appear in main as well as master branch.
+
